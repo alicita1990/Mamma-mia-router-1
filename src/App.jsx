@@ -13,9 +13,9 @@ function App() {
 
             <MyNavbar/>
             
-            <Cart/>
+            {/* <Cart/> */}
 
-            {/* <Home/> */}
+              <Home/> 
 
             {/* <Formulario/> */}
 

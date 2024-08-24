@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import MyCard from './MyCard';
-import {pizzas} from './pizzas'
 
+function Home() {
+  const [pizzas, setPizzas] = React.useState([]);
 
-const Home = () => {
+  useEffect(() => {
+    fetch('http://localhost:5000/api/pizzas')
+      .then(response => response.json())
+      .then(data => setPizzas(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+
   return (
     <div>
-        <Header/>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      {pizzas.map(pizzas => (
-        
-        <MyCard
-          key={pizzas.id}
-          name={pizzas.name}
-          price={pizzas.price}
-          ingredients={pizzas.ingredients}
-          img={pizzas.img}
-          desc={pizzas.desc}
-        />
-
-      ))}
-    </div>
-      
+      <Header />
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {pizzas.map(pizza => (
+          <MyCard 
+            key={pizza.id}
+            name={pizza.name}
+            price={pizza.price}
+            ingredients={pizza.ingredients}
+            img={pizza.img}
+            desc={pizza.desc}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 export default Home;
+
