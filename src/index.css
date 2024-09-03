@@ -148,3 +148,61 @@ h3{
   box-sizing: border-box; 
   margin-bottom: 1rem;
 }
+
+.not {
+  display: flex;
+  justify-content: center;
+  height: 900px;
+  background-image: url(../src/components/assets/gato.png);
+  background-repeat: no-repeat;
+  margin-left: 15rem;
+}
+
+.contprofile{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(244, 218, 18) ;
+  height: 500px;
+  padding: 2rem;
+  margin-left: 3rem;
+  
+}
+
+.imagenp{
+  height: 30rem;
+}
+
+.profile{
+  size:50px;
+  padding: 5rem;
+  border-color: 2px;
+  background-color: blue;
+}
+
+.recuadro{
+ 
+  width: 30rem;
+  border: solid;
+  border-color: black;
+  border-width: 3px;
+  margin: 2rem;
+  padding: 1rem;
+  margin-left: 10rem;
+
+  
+}
+
+.foto{
+  background-image: url(./components/assets/pizza2.jpg);
+  width: 100px;
+  height: 100px;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 60%;
+  margin-top: 3rem;
+}
+
+.recuadro1{
+  margin-left: 10rem;
+  font-size: 30px;
+}
