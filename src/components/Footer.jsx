@@ -7,7 +7,7 @@ function HeaderAndFooterExample() {
       <Card.Header>Los Mejores del sector</Card.Header>
       <Card.Body>
         <Card.Title>Ofertas especiales</Card.Title>
-        <Button variant="primary">Hablemos!</Button>
+        <Button variant="dark">Hablemos!</Button>
       </Card.Body>
       <Card.Footer className="text-muted">2024</Card.Footer>
     </Card>

@@ -85,14 +85,18 @@ body{
   margin-bottom: 50px;
 
 }
-.header{
-  background-image: url(./components/assets/pizza2.jpg);
+.header {
+  background-image: url(./components/assets/ivan-torres-MQUqbmszGGM-unsplash.jpg);
   height: 15rem;
   padding: 3rem;
- 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 h1{
-  font-size: 60px;
+  font-size: 80px;
+  font-family: cursive;
+  color: rgb(244, 218, 18);
 }
 .mb-3{
   justify-content: center;
@@ -207,6 +211,3 @@ h3{
   font-size: 30px;
 }
 
-.cardajustes{
-  margin: 5rem;
-}

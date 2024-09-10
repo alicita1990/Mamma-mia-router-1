@@ -6,9 +6,9 @@ import { CartContext } from './context/Cartcontext';
 const MyCard = ({ desc, id, img, ingredients, name, price }) => {
   const { addToCart, removeFromCart } = useContext(CartContext);
   return (
-    <Card className= "cardajustes" style={{ width: '12rem', margin: '10px' }}>
+    <Card style={{ width: '9rem', margin: '20px' }}>
       <Card.Img variant="top" src={img} />
-      <Card.Body>
+      <Card.Body >
         <Card.Title>{name}</Card.Title>
         <Card.Text>
           {desc}
@@ -19,11 +19,11 @@ const MyCard = ({ desc, id, img, ingredients, name, price }) => {
         </Card.Text>
         
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Button variant="primary" onClick={() => addToCart({ id, name, price, ingredients })}>
+        <Button variant="dark" onClick={() => addToCart({ id, name, price, ingredients })}>
   Añadir
 </Button>
   
-          <Button variant="danger" onClick={() => removeFromCart(id)}>Quitar</Button>
+          <Button variant="dark" onClick={() => removeFromCart(id)}>Quitar</Button>
         </div>
       </Card.Body>
     </Card>
