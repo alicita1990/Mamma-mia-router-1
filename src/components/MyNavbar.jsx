@@ -2,19 +2,31 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+import { CartContext } from './context/Cartcontext';
+import React, { useContext } from 'react'; 
+import Button from 'react-bootstrap/Button';
+import { FaCartPlus } from "react-icons/fa"; 
 
-function BasicExample() {
+
+
+  function MyNavbar() {
+    const { getTotal } = useContext(CartContext);
+
   return (
     <Navbar expand="lg" className="nav">
       <Container>
-        <Navbar.Brand href="#home">Home</Navbar.Brand>
+        {/* Usar `Link` de react-router-dom directamente */}
+        <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Profile</Nav.Link>
-            <Nav.Link href="#link">Logout</Nav.Link>
-            <Nav.Link href="#link">Login</Nav.Link>
-            <Nav.Link href="#link">register</Nav.Link>
+            {/* Usar `Link` de react-router-dom directamente */}
+            <Nav.Link as={Link} to="/Formulario">Formulario</Nav.Link>
+            <Nav.Link as={Link} to="/Login">Login</Nav.Link>
+            <Nav.Link as={Link} to="/Profile">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/*">Notfound</Nav.Link>
+            {/* Este enlace tiene un href en lugar de `to` ya que es un enlace estándar */}
             <Nav.Link href="#link">total</Nav.Link>
             <NavDropdown title="como pedir" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Armala</NavDropdown.Item>
@@ -28,10 +40,13 @@ function BasicExample() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+          <Button variant="dark">
+            Total: ${getTotal()} <FaCartPlus style={{ marginLeft: '5px' }} /> 
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
 
-export default BasicExample;
+export default MyNavbar;

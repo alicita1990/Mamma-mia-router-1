@@ -1,37 +1,11 @@
-
-import React, { useState } from 'react';
-import { pizzas } from './pizzas'; 
+import React, { useContext } from 'react';
+import { CartContext } from '../components/context/Cartcontext';
+import { pizzas } from '../components/pizzas'; 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Cart = () => {
-  const [cart, setCart] = useState(pizzas.map(pizza => Object.assign({}, pizza, { quantity: 1 })));
-
-  const sumarpizza = (id) => {
-    const updatedCart = cart.map((pizza) => {
-      if (pizza.id === id) {
-        return { ...pizza, quantity: pizza.quantity + 1 };
-      }
-      return pizza;
-    });
-    setCart(updatedCart);
-  };
-
-  const restarpizza = (id) => {
-    const updatedCart = cart
-      .map((pizza) => {
-        if (pizza.id === id) {
-          return { ...pizza, quantity: Math.max(0, pizza.quantity - 1) };
-        }
-        return pizza;
-      })
-      .filter((pizza) => pizza.quantity > 0); 
-    setCart(updatedCart);
-  };
-
-  const getTotal = () => {
-    return cart.reduce((total, pizza) => total + pizza.price * pizza.quantity, 0);
-  };
+  const { cart, incrementQuantity, decrementQuantity, getTotal } = useContext(CartContext);
 
   return (
     <div className='nuevobody'>
@@ -50,8 +24,8 @@ const Cart = () => {
                 <strong>Cantidad:</strong> {pizza.quantity}
               </Card.Text>
               <div>
-                <Button variant="secondary" onClick={() => restarpizza(pizza.id)}>-</Button>
-                <Button variant="secondary" onClick={() => sumarpizza(pizza.id)} style={{ marginLeft: '10px' }}>+</Button>
+                <Button variant="secondary" onClick={() => decrementQuantity(pizza.price)}>-</Button>
+                <Button variant="secondary" onClick={() => incrementQuantity(pizza.price)} style={{ marginLeft: '10px' }}>+</Button>
               </div>
             </Card.Body>
           </Card>

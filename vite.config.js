@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/HITO3CARRODECOMPRA.git",
+  base: "/Mamma-mia-router-1.git",
   plugins: [react()],
 })
